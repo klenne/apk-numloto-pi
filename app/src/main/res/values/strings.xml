@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Gerador NumLoto</string>
+    <string name="gerar_n_meros">Gerar Números</string>
+    <string name="gerar_megasena">Gerar Números Mega Sena</string>
+    <string name="gerar_quina">Gerar Números Quina</string>
+    <string name="gerar_lotoFacil">Gerar Números LotoFácil</string>
+    <string name="gerar_duplasena">Gerar Números Dupla Sena</string>
+    <string name="gerar_dia_de_sorte">Gerar Números Dia De Sorte</string>
+    <string name="gerar_lotomania">Gerar Números LotoMania</string>
+    <string name="numeros_gerados">Números Gerados:</string>
+    <string name="descricao_imagem_logo">Imagens de logos dos jogos da loteria</string>
+    <string name="title_activity_menu_main">Loto App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="gerar_numeros">Gerar Números</string>
+    <string name="meus_numeros">Meus Números</string>
+    <string name="lotericas_proximas">Lotéricas Próximas</string>
+    <string name="menu_tools">Tools</string>
+    <string name="salvar_numero">Salvar Números</string>
+
+
+</resources>
