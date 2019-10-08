@@ -1,22 +1,58 @@
 package br.com.klenne.view
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.StaggeredGridLayoutManager
+import android.view.View
+import android.widget.Toast
 import br.com.klenne.db.DataBaseNumeros
+import br.com.klenne.listadaptors.NumeroListAdapter
 import kotlinx.android.synthetic.main.activity_meus_numeros.*
+import br.com.klenne.model.NumeroCombinacao as NumeroCombinacao1
 
-class MeusNumeros : AppCompatActivity() {
+class MeusNumeros : AppCompatActivity(), View.OnClickListener {
 
     var dbHandler: DataBaseNumeros? = null
+
+
+    override fun onClick(v: View?) {
+
+
+        when (val id = v!!.id) {
+
+
+            R.id.btn_voltar_meus_num -> {
+                val intent = Intent(this, TelaMain::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+
+        }
+
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meus_numeros)
         dbHandler = DataBaseNumeros(this)
-
-        button.setOnClickListener {
-            val numeros = dbHandler!!.getAllNumbers()
-            txv_numeros.text = numeros
+        val listaNumeros = dbHandler!!.getAllNumbers()
+        val recyclerView = numero_list_recyclerview
+        recyclerView.adapter = NumeroListAdapter(listaNumeros, this) { numero ->
+            val intent = Intent(this, VerNumero::class.java)
+            intent.putExtra("numero",numero.numero)
+            startActivity(intent)
         }
+        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
+        btn_voltar_meus_num.setOnClickListener(this)
+
+
     }
+
+
 }
+
+
