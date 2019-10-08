@@ -20,40 +20,32 @@
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
                 android:background="@android:color/transparent"/>
-        <ImageButton
-                android:src="@drawable/ic_add_white_24dp"
-                android:layout_width="0dp"
-                android:layout_height="17dp"
-                android:id="@+id/btn_salvar"
-                android:background="@android:color/transparent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
     </android.support.constraint.ConstraintLayout>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/edt_numero"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="123dp" app:layout_constraintBottom_toTopOf="@+id/button"/>
     <Button
-            android:text="Button"
+            android:text="Deletar Número"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/btn_deletar" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="37dp"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="37dp"
+            android:background="#FFFFFF" android:textColor="@android:color/holo_red_dark"/>
     <ImageView
             android:layout_width="255dp"
             android:layout_height="214dp" app:srcCompat="@android:color/transparent"
             android:id="@+id/imgQr"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toTopOf="@+id/edt_numero"/>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:layout_marginTop="130dp" android:layout_marginBottom="98dp"
+            app:layout_constraintBottom_toTopOf="@+id/txv_numero_mostrar"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/txv_numero_mostrar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="130dp" app:layout_constraintBottom_toTopOf="@+id/btn_deletar"
+            android:textAlignment="center" android:textAllCaps="false" android:textSize="14sp"/>
 
 </android.support.constraint.ConstraintLayout>

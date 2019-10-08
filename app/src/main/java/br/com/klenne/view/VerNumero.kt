@@ -12,7 +12,7 @@ import net.glxn.qrgen.android.QRCode
 class VerNumero : AppCompatActivity(), View.OnClickListener {
     var dbHandler: DataBaseNumeros? = null
     private var mImagePreview: ImageView? = null
-
+    lateinit var numero:String
     override fun onClick(v: View?) {
 
 
@@ -25,6 +25,13 @@ class VerNumero : AppCompatActivity(), View.OnClickListener {
                 finish()
             }
 
+            R.id.btn_deletar -> {
+
+                dbHandler?.deleteNumber(numero)
+                val intent = Intent(this, MeusNumeros::class.java)
+                startActivity(intent)
+                finish()
+            }
 
         }
 
@@ -34,11 +41,18 @@ class VerNumero : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_numero)
         dbHandler = DataBaseNumeros(this)
-        val numero = intent.getStringExtra("numero")
+        numero = intent.getStringExtra("numero")
+
+
+        txv_numero_mostrar.text = numero
+
         mImagePreview = findViewById(R.id.imgQr) as ImageView
         val bitmap = QRCode.from(numero).withSize(1000, 1000).bitmap()
         (mImagePreview as ImageView).setImageBitmap(bitmap)
-        edt_numero.setText(numero)
+
         btn_voltar_vernum_num.setOnClickListener(this)
+        btn_deletar.setOnClickListener(this)
+
     }
 }
+

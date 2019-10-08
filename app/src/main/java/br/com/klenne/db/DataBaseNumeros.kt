@@ -13,7 +13,7 @@ class DataBaseNumeros(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_TABLE = "CREATE TABLE $TABLE_NAME " +
-                "($ID Integer PRIMARY KEY , $NUMEROCOMBINACAO TEXT, $TIPOJOGO TEXT)"
+                "($ID Integer PRIMARY KEY AUTOINCREMENT  , $NUMEROCOMBINACAO TEXT, $TIPOJOGO TEXT)"
         db?.execSQL(CREATE_TABLE)
     }
 
@@ -26,7 +26,6 @@ class DataBaseNumeros(context: Context) :
         //Create and/or open a database that will be used for reading and writing.
         val db = this.writableDatabase
         val values = ContentValues()
-
         values.put(NUMEROCOMBINACAO, numeroCombinacao.numero)
         values.put(TIPOJOGO, numeroCombinacao.tipoJogo)
         val _success = db.insert(TABLE_NAME, null, values)
@@ -42,7 +41,7 @@ class DataBaseNumeros(context: Context) :
 
 
         val db = readableDatabase
-        val selectALLQuery = "SELECT * FROM $TABLE_NAME"
+        val selectALLQuery = "SELECT * FROM  $TABLE_NAME"
         val cursor = db.rawQuery(selectALLQuery, null)
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -63,11 +62,20 @@ class DataBaseNumeros(context: Context) :
         return listaNumeros
     }
 
+    //delete
+    fun deleteNumber(numeroCombinacao: String) {
+
+        val db = this.writableDatabase
+        db.delete(TABLE_NAME, NUMEROCOMBINACAO + "=?", arrayOf(numeroCombinacao))
+
+        db.close()
+    }
+
     companion object {
         private val DB_NAME = "NumerosDB"
         private val DB_VERSIOM = 1;
         private val TABLE_NAME = "NUMEROCOMBINACAO"
-        private val ID = "id"
+        private val ID = "id_table_a"
         private val NUMEROCOMBINACAO = "numero_combinacao"
         private val TIPOJOGO = "tipo_jogo"
     }

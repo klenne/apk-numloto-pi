@@ -64,7 +64,9 @@ class TelaMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                 finish()
             }
             R.id.nav_lotericas_proximas -> {
-
+                val intent = Intent(this,MapsActivity2::class.java)
+                startActivity(intent)
+                finish()
             }
 
 
