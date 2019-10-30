@@ -1,7 +1,6 @@
 package br.com.klenne.listadaptors
 
 import android.content.Context
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import br.com.klenne.gerarnumeros.TipoDeJogo
 import br.com.klenne.model.NumeroCombinacao
 import br.com.klenne.view.R
-import br.com.klenne.view.VerNumero
 import kotlinx.android.synthetic.main.layout_numero.view.*
 
 
@@ -50,7 +48,7 @@ class NumeroListAdapter(private val numerosCombinacao: List<NumeroCombinacao>, p
       fun bindView(combinacao: NumeroCombinacao) {
 
 
-            val numero = itemView.numero_item_combinacao
+            val numero = itemView.titulo_servico
             val img = itemView.img_card
 
             when (combinacao.tipoJogo) {

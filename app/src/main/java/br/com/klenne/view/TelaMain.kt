@@ -8,10 +8,16 @@ import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import br.com.klenne.db.DataBaseServicos
+import br.com.klenne.listadaptors.ServicoListAdaptor
+import kotlinx.android.synthetic.main.activity_meus_numeros.*
+import kotlinx.android.synthetic.main.content_menu_main.*
 
 class TelaMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    var dbHandler: DataBaseServicos? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +36,19 @@ class TelaMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         navView.setNavigationItemSelectedListener(this)
 
+
+        dbHandler = DataBaseServicos(this)
+        val listaServicos = dbHandler!!.getAllServices()
+        val recyclerView =servico_list_recyclerview
+        recyclerView.adapter = ServicoListAdaptor(listaServicos, this) { servico ->
+
+            val intent = Intent(this, VerServico::class.java)
+            intent.putExtra("descricao", servico.descricao)
+            startActivity(intent)
+
+        }
+        val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
 
     }
 

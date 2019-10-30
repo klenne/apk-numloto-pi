@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="br.com.klenne.view">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -20,7 +19,22 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".LaunchScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false"/>
+
+        <activity android:name=".VerServico">
+        </activity>
+        <activity android:name=".CadastrarNum">
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -37,13 +51,6 @@
                 android:name=".MapsActivity2"
                 android:label="@string/title_activity_maps2">
         </activity>
-        <activity android:name=".MapsActivity">
-        </activity>
-        <activity
-                android:name=".AcharLoterica"
-                android:label="@string/title_activity_achar_loterica"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".VerNumero">
         </activity>
         <activity android:name=".MeusNumeros">
@@ -52,11 +59,7 @@
                 android:name=".TelaMain"
                 android:label="@string/title_activity_menu_main"
                 android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
                 android:name=".GerarNumeros"

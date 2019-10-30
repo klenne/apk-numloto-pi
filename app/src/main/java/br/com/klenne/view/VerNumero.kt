@@ -54,5 +54,7 @@ class VerNumero : AppCompatActivity(), View.OnClickListener {
         btn_deletar.setOnClickListener(this)
 
     }
+
+
 }
 

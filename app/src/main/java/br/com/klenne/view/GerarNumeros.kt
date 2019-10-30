@@ -25,7 +25,7 @@ class GerarNumeros : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.gerar_numeros)
         btn_salvar.setOnClickListener(this)
         btn_gerar.setOnClickListener(this)
-        btn_voltar.setOnClickListener(this)
+        btn_voltar_cadastro.setOnClickListener(this)
         configureSpinner()
         dbHandler = DataBaseNumeros(this)
 
@@ -42,7 +42,7 @@ class GerarNumeros : AppCompatActivity(), View.OnClickListener {
                 setNumerosGerados()
 
             }
-            R.id.btn_voltar -> {
+            R.id.btn_voltar_cadastro -> {
                 val intent = Intent(this, TelaMain::class.java)
                 startActivity(intent)
                 finish()

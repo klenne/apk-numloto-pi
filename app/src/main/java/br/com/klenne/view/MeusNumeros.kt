@@ -25,6 +25,11 @@ class MeusNumeros : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 finish()
             }
+            R.id.btn_salvar -> {
+                val intent = Intent(this, CadastrarNum::class.java)
+                startActivity(intent)
+                finish()
+            }
 
 
         }
@@ -40,13 +45,13 @@ class MeusNumeros : AppCompatActivity(), View.OnClickListener {
         val recyclerView = numero_list_recyclerview
         recyclerView.adapter = NumeroListAdapter(listaNumeros, this) { numero ->
             val intent = Intent(this, VerNumero::class.java)
-            intent.putExtra("numero",numero.numero)
+            intent.putExtra("numero", numero.numero)
             startActivity(intent)
         }
         val layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
         btn_voltar_vernum_num.setOnClickListener(this)
-
+        btn_salvar.setOnClickListener(this)
 
     }
 
